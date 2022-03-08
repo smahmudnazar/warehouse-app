@@ -12,4 +12,8 @@ public class Comments {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
     private String text;
+    private String texat;
+    private String texaqt;
+    private String teeqxt;
+
 }
