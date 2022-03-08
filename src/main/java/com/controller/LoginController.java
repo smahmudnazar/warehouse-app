@@ -11,14 +11,14 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/login")
-public class Login {
+public class LoginController {
     @Autowired
     UserRepository userRepository;
 
 
     @GetMapping
     public String reg(Model model){
-        return "login/login";
+        return "index";
     }
 
     @PostMapping
