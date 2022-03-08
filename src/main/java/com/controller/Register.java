@@ -27,7 +27,7 @@ public class Register {
     public Object save(Model model ,@RequestParam("username")String username,@RequestParam("psw")String pass){
         Users users1 = new Users(count,username,pass);
         userRepository.save(users1);
-        return "redirect:/login";
+        return "index";
     }
 
 
