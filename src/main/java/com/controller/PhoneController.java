@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/forgetuser")
-public class Forget {
+@RequestMapping("/phone")
+public class PhoneController {
     @Autowired
     UserRepository userRepository;
 
 
     @GetMapping
     public String get(Model model){
-        return "home/forgetuser";
+        return "phone/phone";
     }
 }
