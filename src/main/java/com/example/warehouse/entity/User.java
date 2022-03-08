@@ -14,5 +14,6 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
+    //men nimadir qildim
     //sasbahusvaduxzsdds
 }
