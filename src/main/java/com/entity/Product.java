@@ -17,9 +17,9 @@ public class Product {
 
     private String name;
 
-    @OneToMany
+    @ManyToOne
     private Category category;
 
-    @OneToMany
+    @ManyToOne
     private Attachment photo;
 }
