@@ -6,19 +6,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
 
 @EqualsAndHashCode(callSuper = true)
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Category extends AbsNameEntity {
-
+@Entity
+public class Currency extends AbsNameEntity {
     private boolean active=true;
-
-    @ManyToOne
-    private Category parent_category;
-
-
 }

@@ -6,19 +6,19 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Category extends AbsNameEntity {
+@Entity
+public class Warehouse extends AbsNameEntity {
 
     private boolean active=true;
 
-    @ManyToOne
-    private Category parent_category;
-
-
+    @ManyToMany
+    private List<Users> users;
 }
