@@ -1,7 +1,7 @@
 package com.service;
 
 import com.dto.ApiResponse;
-import com.model.Users;
+import com.entity.Users;
 import com.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
