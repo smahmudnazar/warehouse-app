@@ -1,16 +1,16 @@
 package com.service;
 
 import com.dto.ApiResponse;
-import com.entity.Users;
-import com.repository.UserRepository;
+import com.entity.ForLogin;
+import com.repository.ForLoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserService {
     @Autowired
-    UserRepository userRepository;
+    ForLoginRepository userRepository;
 
-    public ApiResponse add(Users users) {
-        Users save = userRepository.save(users);
+    public ApiResponse add(ForLogin users) {
+        ForLogin save = userRepository.save(users);
         return new ApiResponse("Saved", true, save);
     }
 }

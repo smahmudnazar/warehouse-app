@@ -1,7 +1,7 @@
 package com.controller;
 
-import com.entity.Users;
-import com.repository.UserRepository;
+import com.entity.ForLogin;
+import com.repository.ForLoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ public class RegisterController {
 
 
     @Autowired
-    UserRepository userRepository;
+    ForLoginRepository userRepository;
 
 
     @GetMapping
@@ -24,7 +24,7 @@ public class RegisterController {
 
     @PostMapping
     public Object save(Model model ,@RequestParam("username")String username,@RequestParam("psw")String pass){
-        Users users1 = new Users(count,username,pass);
+        ForLogin users1 = new ForLogin(count,username,pass);
         userRepository.save(users1);
         return "index";
     }

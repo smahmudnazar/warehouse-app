@@ -1,6 +1,5 @@
 package com.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,27 +9,30 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public class Input {
+public class Output {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @CreationTimestamp
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private Timestamp date;
 
     @ManyToOne
     private Warehouse warehouse;
 
     @ManyToOne
-    private Supplier supplier;
+    private Currency currency;
 
     private Integer facture_number;
 
     @Column(unique = true)
     private Integer code;
+
+    @ManyToOne
+    private Client client;
 }

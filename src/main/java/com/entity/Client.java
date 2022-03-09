@@ -6,19 +6,15 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
 @EqualsAndHashCode(callSuper = true)
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Category extends AbsNameEntity {
-
-    private boolean active=true;
-
-    @ManyToOne
-    private Category parent_category;
-
-
+@Entity
+public class Client extends AbsNameEntity {
+    @Column(unique = true)
+    private String phone_number;
 }
