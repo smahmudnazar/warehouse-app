@@ -18,4 +18,5 @@ public class Category {
     @Column(nullable = false,unique = true)
     private String username;
     private String password;
+    //adsafsdfdsfsdf
 }
