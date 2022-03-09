@@ -1,25 +1,31 @@
 package com.entity;
 
+import com.entity.Shablon.AbsNameEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class Product extends AbsNameEntity {
 
-    private String name;
-
-    @OneToMany
+    @ManyToOne
     private Category category;
 
-    @OneToMany
+    @ManyToOne
     private Attachment photo;
+
+    @Column(nullable = false,unique = true)
+    private Integer code;
+
+    @ManyToOne
+    private Meansurement meansurement;
+
+    private boolean active=true;
 }
