@@ -19,6 +19,5 @@ public class Warehouse extends AbsNameEntity {
 
     private boolean active=true;
 
-    @ManyToMany
-    private List<Users> users;
+
 }

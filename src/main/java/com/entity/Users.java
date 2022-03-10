@@ -32,7 +32,7 @@ public class Users {
 
     private boolean active=true;
 
-//    @ManyToMany
-//    private List<Warehouse> warehouses;
+    @ManyToMany
+    private List<Warehouse> warehouse;
 
 }
