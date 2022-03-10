@@ -8,22 +8,29 @@
 </head>
 <body>
 <div class="container">
-    <h1>Warehouse Page</h1>
-    <a href="/warehouse/add" class="btn btn-success">Yangi Warehouse Qo'shish</a>
+    <h1>User Page</h1>
+    <a href="/user/add" class="btn btn-success">Yangi User Qo'shish</a>
     <table class="table table-hover">
         <thead>
         <tr>
             <th>Id</th>
-            <th>Name</th>
+            <th>Full Name</th>
             <th>IsActive</th>
+            <th>Phone Number</th>
+            <th>Username</th>
+            <th>Warehouse</th>
             <th>Operations</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each=" warehouse,i : ${list}">
+        <tr th:each=" user,i : ${list}">
             <td th:text="${i.index+1}"></td>
-            <td th:text="${warehouse.name}"></td>
-            <td th:text="${warehouse.active}"></td>
+            <td th:text="${user.fullName}"></td>
+            <td th:text="${user.active}"></td>
+            <td th:text="${user.phone_number}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.warehouse}"></td>
+
             <td>
                 <a class="btn btn-warning" th:href="${'/warehouse/edit/'+warehouse.id}">Update</a>
                 <a class="btn btn-danger" th:href="${'/warehouse/delete/'+warehouse.id}">Delete</a>
