@@ -7,8 +7,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -17,7 +15,7 @@ import java.util.List;
 @Entity
 public class Warehouse extends AbsNameEntity {
 
-    private boolean active=true;
+    private boolean active;
 
 
 }

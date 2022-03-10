@@ -1,7 +1,7 @@
 package com.controller;
 
-import com.entity.ForLogin;
-import com.repository.ForLoginRepository;
+import com.entity.Admin;
+import com.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/login")
 public class LoginController {
     @Autowired
-    ForLoginRepository userRepository;
+    AdminRepository userRepository;
 
 
     @GetMapping
@@ -23,7 +23,7 @@ public class LoginController {
 
     @PostMapping
     public String iseuser(Model model, @RequestParam("usernm") String usernm, @RequestParam("userpsw")String pass){
-        List<ForLogin> javob= userRepository.findByUsername(usernm);
+        List<Admin> javob= userRepository.findByUsername(usernm);
         if (javob.get(0).getPassword().equals(pass)){
             return "home/home";
         }else {
