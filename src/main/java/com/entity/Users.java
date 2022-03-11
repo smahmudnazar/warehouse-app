@@ -16,8 +16,9 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
     private String fullName;
+
+    private boolean active;
 
     @Column(nullable = false,unique = true)
     private String username;
@@ -30,9 +31,7 @@ public class Users {
 
     private String password;
 
-    private boolean active=true;
-
-//    @ManyToMany
-//    private List<Warehouse> warehouses;
+    @ManyToMany
+    private List<Warehouse> warehouse;
 
 }

@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Meansurement  extends AbsNameEntity {
+public class Measurement extends AbsNameEntity {
 
     private boolean active;
 }

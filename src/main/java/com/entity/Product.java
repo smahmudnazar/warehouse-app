@@ -25,7 +25,7 @@ public class Product extends AbsNameEntity {
     private Integer code;
 
     @ManyToOne
-    private Meansurement meansurement;
+    private Measurement measurement;
 
     private boolean active=true;
 }

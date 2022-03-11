@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass //ota classlarda
+@MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString

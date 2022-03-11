@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<h1>Category Edit Page</h1>
+<form method="post" th:action="@{/category/edit/{id}(id=${category.getId()})}" th:object="${category}">
+    <div class="form-group">
+        <input th:field="*{name}" name="name" type="text"  id="name"
+               placeholder="Category name:">
+        <label for="active">IsActive:</label>
+        <input type="checkbox" id="active" name="active" th:field="*{active}">
+
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+</body>
+</html>

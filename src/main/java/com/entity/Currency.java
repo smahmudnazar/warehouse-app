@@ -14,5 +14,5 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @Entity
 public class Currency extends AbsNameEntity {
-    private boolean active=true;
+    private boolean active;
 }
