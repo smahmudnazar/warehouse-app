@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class ForLogin {
+public class Admin {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

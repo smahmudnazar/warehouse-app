@@ -1,14 +1,14 @@
 package com.repository;
 
-import com.entity.ForLogin;
+import com.entity.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ForLoginRepository extends JpaRepository<ForLogin,Integer> {
+public interface AdminRepository extends JpaRepository<Admin,Integer> {
 
-     List<ForLogin> findByUsername(String username);
+     List<Admin> findByUsername(String username);
 
 }

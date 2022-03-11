@@ -15,10 +15,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class Category extends AbsNameEntity {
 
-    private boolean active=true;
+    private boolean active;
 
-    @ManyToOne
-    private Category parent_category;
+
 
 
 }
