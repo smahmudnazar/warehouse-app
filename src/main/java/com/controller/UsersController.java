@@ -22,4 +22,7 @@ public class UsersController {
         model.addAttribute("list",userRepository.findAll());
         return "user/user";
     }
+    //ketmon
+    //ketmon
+    //ketmon
 }
