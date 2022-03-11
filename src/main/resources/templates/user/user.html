@@ -11,11 +11,12 @@
     <h1>User Page</h1>
     <a href="/user/add" class="btn btn-success">Yangi User Qo'shish</a>
     <table class="table table-hover">
+
         <thead>
         <tr>
             <th>Id</th>
             <th>Full Name</th>
-            <th>IsActive</th>
+<!--            <th>IsActive</th>-->
             <th>Phone Number</th>
             <th>Username</th>
             <th>Warehouse</th>
@@ -26,14 +27,15 @@
         <tr th:each=" user,i : ${list}">
             <td th:text="${i.index+1}"></td>
             <td th:text="${user.fullName}"></td>
-            <td th:text="${user.active}"></td>
+<!--            <td th:text="${user.active}"></td>-->
             <td th:text="${user.phone_number}"></td>
             <td th:text="${user.username}"></td>
-            <td th:text="${user.warehouse}"></td>
-
+            <td th:each="warehouse : ${user.warehouse}">
+                <p th:text="${warehouse.name}"></p>
+            </td>
             <td>
-                <a class="btn btn-warning" th:href="${'/warehouse/edit/'+warehouse.id}">Update</a>
-                <a class="btn btn-danger" th:href="${'/warehouse/delete/'+warehouse.id}">Delete</a>
+                <a class="btn btn-warning" th:href="${'/user/edit/'+user.id}">Update</a>
+                <a class="btn btn-danger" th:href="${'/user/delete/'+user.id}">Delete</a>
             </td>
         </tr>
         </tbody>

@@ -26,7 +26,6 @@ public class Users {
     @Column(unique = true)
     private String phone_number;
 
-
     private Integer code;
 
     private String password;
