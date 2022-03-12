@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<h1>Supplier Edit Page</h1>
+<form method="post" th:action="@{/supplier/edit/{id}(id=${supplier.getId()})}" th:object="${supplier}">
+    <div class="form-group">
+        <input th:field="*{name}" name="name" type="text"  id="name"
+               placeholder="Supplier name:">
+        <input th:field="*{phone_number}" name="name" type="text"  id="phone_number"
+               placeholder="Supplier name:">
+        <label for="active">IsActive:</label>
+        <input type="checkbox" id="active" name="active" th:field="*{active}">
+
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+</body>
+</html>
