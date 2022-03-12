@@ -15,7 +15,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @Entity
 public class Supplier extends AbsNameEntity {
-    private boolean active=true;
+    private boolean active;
 
     @Column(unique = true)
     private String phone_number;
