@@ -25,9 +25,10 @@ public class Input_product {
 
     private double price;
 
-    private Timestamp expire_date;
+    @Column(nullable = false)
+    private Date expire_date;
 
-    @ManyToOne
-    private Input input;
+//    @ManyToOne
+//    private Input input;
 
 }

@@ -16,9 +16,8 @@
         <tr>
             <th>Id</th>
             <th>Full Name</th>
-<!--            <th>IsActive</th>-->
+            <th>IsActive</th>
             <th>Phone Number</th>
-            <th>Username</th>
             <th>Warehouse</th>
             <th>Operations</th>
         </tr>
@@ -27,9 +26,8 @@
         <tr th:each=" user,i : ${list}">
             <td th:text="${i.index+1}"></td>
             <td th:text="${user.fullName}"></td>
-<!--            <td th:text="${user.active}"></td>-->
+            <td th:text="${user.active}"></td>
             <td th:text="${user.phone_number}"></td>
-            <td th:text="${user.username}"></td>
             <td th:each="warehouse : ${user.warehouse}">
                 <p th:text="${warehouse.name}"></p>
             </td>
