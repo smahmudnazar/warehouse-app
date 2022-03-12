@@ -1,40 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Warehouse</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  </head>
-  <body>
-    <div class="wrapper">
-      <input type="checkbox" id="btn" hidden>
-      <label for="btn" class="menu-btn">
-        <i class="fas fa-bars"></i>
-        <i class="fas fa-times"></i>
-      </label>
-      <nav id="sidebar">
-        <div class="title">Warehouse</div>
-        <ul class="list-items">
-          <li><a href="/home"><i class="fas fa-home"></i>Home</a></li>
-          <li><a href="/warehouse"><i class="fas fa-solid fa-warehouse"></i>Warehouse</a></li>
-          <li><a href="/users"><i class="fas fa-address-book"></i>Users</a></li>
-          <li><a href="/input"><i class="fas fa-solid fa-arrow-up"></i>Input</a></li>
-          <li><a href="/output"><i class="fas fa-solid fa-arrow-down"></i>Output</a></li>
-          <li><a href="/statistic"><i class="fas fa-cog"></i>Statistic</a></li>
-          <li><a href="/contact"><i class="fas fa-envelope"></i>Contact us</a></li>
-          <div class="icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-          </div>
-        </ul>
-      </nav>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Home</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/web.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="marco">
+    <div class="landing">
+        <div class="marco-container">
+            <div class="logo-container">
+                <h1 class="logo">Warehouse</h1>
+            </div>
+            <div class="menu-container">
+                <ul class="menuList">
+                    <li class="menu-list-item active"><a href="/home">Home</a></li>
+                    <li class="menu-list-item"><a href="/warehouse">Warehouse</a></li>
+                    <li class="menu-list-item"><a href="/category">Category</a></li>
+                    <li class="menu-list-item"><a href="/measurement">Measurement</a></li>
+                    <li class="menu-list-item"><a href="/currency">Currency</a></li>
+
+                </ul>
+            </div>
+            <div class="profile-container">
+                <div class="toggle">
+                    <i  class="fas fa-moon toggle-icon"></i>
+                    <i class="fas fa-sun toggle-icon"></i>
+                    <div class="toggle-ball"></div>
+                </div>
+
+            </div>
+        </div>
     </div>
-    <div class="content">
-      <div class="header">2 command Menu BAR</div>
-      <p>using only HTML and CSS</p>
+    <div class="sidemarco">
+        <a href="/search"><i class="left-menu-icon fas fa-search"></i></a>
+        <a href="/home"><i class="left-menu-icon fas fa-home"></i></a>
+
     </div>
-  </body>
+    <div class="container">
+        <div class="content-container">
+            <div class="featured-content"
+                 style="background: linear-gradient(to bottom,rgba(0,0,0,0),#151515), url(https://drive.google.com/file/d/1-LFkPH9tSM6j2x_vpAGUn1SXMRechX4v/view?usp=sharing);">
+                <p class="featured-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam repellat
+                    libero
+                    vero, rem aspernatur eum numquam dolor blanditiis tenetur optio illum recusandae nemo placeat
+                    repudiandae possimus vitae veniam omnis a.</p>
+</div>
+            </div>
+            </div>
+            </div>
+</body>
 </html>

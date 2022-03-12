@@ -1,31 +1,27 @@
-package com.entity;
+package com.dto;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
 import java.util.List;
 
-@Entity
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Users {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+@Data
+public class UsersDTO {
 
     private String fullName;
 
     private boolean active;
 
-    @Column(unique = true)
     private String phone_number;
 
     private Integer code;
 
-    @ManyToMany
-    private List<Warehouse> warehouse;
+    private List<Integer> warehouseid;
+
 
 }
