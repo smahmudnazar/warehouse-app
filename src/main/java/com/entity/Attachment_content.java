@@ -15,8 +15,8 @@ public class Attachment_content {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private byte aByte;
+    @OneToOne
+    Attachment attachment;
 
-    @ManyToOne
-    private Attachment attachment;
+    private byte[] bytes;
 }
