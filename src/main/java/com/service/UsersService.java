@@ -44,7 +44,7 @@ public class UsersService {
         users.setPhone_number(dto.getPhone_number());
         users.setWarehouse(all);
 
-      userRepository.save(users);
+        userRepository.save(users);
 
 
     }
@@ -52,7 +52,7 @@ public class UsersService {
     public Integer randomCode(){
 
         Random rand = new Random();
-        Integer maxNumber = 9999;
+        Integer maxNumber = 9999999;
 
         Integer randomNumber = rand.nextInt(maxNumber) + 1;
 
