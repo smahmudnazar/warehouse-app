@@ -22,7 +22,6 @@
 
         <label for="warehouse"></label>
         <select class="form-control" id="warehouse" name="warehouseid" multiple="multiple">
-
             <option th:each="ketmon : ${warehouses}"
                     th:value="${ketmon.id}"
                     th:text="${ketmon.name}">Warehouse name</option>

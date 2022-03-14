@@ -18,8 +18,8 @@ public class Product extends AbsNameEntity {
     @ManyToOne
     private Category category;
 
-    @ManyToOne
-    private Attachment photo;
+//    @ManyToOne
+//    private Attachment photo;
 
     @Column(nullable = false,unique = true)
     private Integer code;
@@ -27,5 +27,6 @@ public class Product extends AbsNameEntity {
     @ManyToOne
     private Measurement measurement;
 
-    private boolean active=true;
+    private boolean active;
+
 }

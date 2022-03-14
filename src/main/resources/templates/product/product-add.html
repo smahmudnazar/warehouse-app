@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<h1>Product Add Page</h1>
+<form method="post" action="/product/add">
+    <div class="form-group">
+        <input name="name" type="text" class="form-control" id="ketmon"
+               placeholder="Product name:">
+    </div>
+
+    <label for="active">IsActive:</label>
+    <input type="checkbox" id="active" name="active" value="true">
+
+    <div>
+        <label> Category </label>
+        <div>
+            <select name="category_id">
+                <option th:each="category : ${categorytList}"
+                        th:text="${category.name}"
+                        th:value="${category.id}">
+            </select>
+        </div>
+    </div>
+    <div>
+        <label> Measurement </label>
+        <div>
+            <select name="measurement_id">
+                <option th:each="measurmement : ${measurementList}"
+                        th:text="${measurmement.name}"
+                        th:value="${measurmement.id}">
+            </select>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+<br>
+<br>
+</body>
+</html>

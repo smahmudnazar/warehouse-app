@@ -14,5 +14,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 public class Attachment extends AbsNameEntity {
-    private Integer ketmon;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    private String name;
+    private long size;
+    private String contentType;
+
 }
