@@ -16,6 +16,6 @@ public class HomeController {
 
     @GetMapping
     public String reg(Model model){
-        return "home1/home1";
+        return "home/home";
     }
 }
