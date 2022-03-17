@@ -64,6 +64,4 @@ public class SupplierController {
         ApiResponse response=supplierService.edit(id,supplier);
         return "redirect:/supplier";
     }
-    //ketmon
-    //ketmon
 }
