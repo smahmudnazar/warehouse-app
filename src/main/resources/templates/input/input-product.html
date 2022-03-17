@@ -7,32 +7,33 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-
 <div class="container">
-    <h1>Supplier Page</h1>
-    <a href="/supplier/add" class="btn btn-success">Yangi Taminotchi Qo'shish</a>
+    <h1>Input Product Page</h1>
     <table class="table table-hover">
         <thead>
         <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Phone Number</th>
-            <th>Operations</th>
+            <th>Amount</th>
+            <th>Expire Date</th>
+            <th>Price</th>
+            <th>Product</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="supplier,i : ${list}">
+        <tr th:each=" input,i : ${list}">
             <td th:text="${i.index+1}"></td>
-            <td th:text="${supplier.name}"></td>
-            <td th:text="${supplier.phone_number}"></td>
+            <td th:text="${input.amount}"></td>
+            <td th:text="${input.expire_date}"></td>
+            <td th:text="${input.price}"></td>
+            <td th:text="${input.product.name}"></td>
             <td>
-                <a class="btn btn-warning" th:href="${'/supplier/edit/'+supplier.id}">Update</a>
-                <a class="btn btn-danger" th:href="${'/supplier/delete/'+supplier.id}">Delete</a>
+                <a class="btn btn-danger" th:href="${'/input/delete_p/'+input.id}">Delete</a>
+
             </td>
         </tr>
         </tbody>
     </table>
 </div>
-
+<br>
 </body>
 </html>

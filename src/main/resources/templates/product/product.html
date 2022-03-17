@@ -15,7 +15,6 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Active</th>
             <th>Category</th>
             <th>Measurement</th>
             <th>Operations</th>
@@ -25,7 +24,6 @@
         <tr th:each=" product,i : ${listProduct}">
             <td th:text="${i.index+1}"></td>
             <td th:text="${product.getName()}"></td>
-            <td th:text="${product.isActive()}"></td>
             <td th:text="${product.category.name}"></td>
             <td th:text="${product.measurement.name}"></td>
             <td>

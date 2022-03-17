@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -25,10 +25,9 @@ public class Input_product {
 
     private double price;
 
-    @Column(nullable = false)
+    private boolean active=true;
+
     private Date expire_date;
 
-//    @ManyToOne
-//    private Input input;
 
 }

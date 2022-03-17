@@ -36,7 +36,7 @@ public class UsersController {
 
     @GetMapping("/add")
     public String getAddPage(Model model){
-        model.addAttribute("warehouses",warehouseRepository.findAllByActiveTrue());
+        model.addAttribute("warehouses",warehouseRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
         return "user/user-add";
     }
 
@@ -57,7 +57,7 @@ public class UsersController {
         Optional<Users> byId = userRepository.findById(id);
         if (!byId.isPresent()) return "Xatolik!";
         model.addAttribute("user", byId.get());
-        model.addAttribute("list",warehouseRepository.findAllByActiveTrue());
+        model.addAttribute("list",warehouseRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
 
         return "user/user-edit";
     }

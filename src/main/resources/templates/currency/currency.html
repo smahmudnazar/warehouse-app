@@ -15,7 +15,6 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>IsActive</th>
             <th>Operations</th>
         </tr>
         </thead>
@@ -23,7 +22,6 @@
         <tr th:each=" currency,i : ${list}">
             <td th:text="${i.index+1}"></td>
             <td th:text="${currency.name}"></td>
-            <td th:text="${currency.active}"></td>
             <td>
                 <a class="btn btn-warning" th:href="${'/currency/edit/'+currency.id}">Update</a>
                 <a class="btn btn-danger" th:href="${'/currency/delete/'+currency.id}">Delete</a>

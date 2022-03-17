@@ -15,7 +15,6 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>IsActive</th>
             <th>Operations</th>
         </tr>
         </thead>
@@ -23,7 +22,6 @@
         <tr th:each=" measurement,i : ${list}">
             <td th:text="${i.index+1}"></td>
             <td th:text="${measurement.name}"></td>
-            <td th:text="${measurement.active}"></td>
             <td>
                 <a class="btn btn-warning" th:href="${'/measurement/edit/'+measurement.id}">Update</a>
                 <a class="btn btn-danger" th:href="${'/measurement/delete/'+measurement.id}">Delete</a>

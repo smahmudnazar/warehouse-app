@@ -33,14 +33,17 @@ public class Input {
     @ManyToOne
     private Supplier supplier;
 
-    private Integer facture_number;
+    private String facture_number;
 
-    private Integer code;
+    private String code;
+
+    @Column(nullable = false)
+    private boolean active=true;
 
     @ManyToOne
     private Currency currency;
 
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Input_product> inputProductList;
 }

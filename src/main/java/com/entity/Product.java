@@ -22,7 +22,7 @@ public class Product extends AbsNameEntity {
 //    private Attachment photo;
 
     @Column(nullable = false,unique = true)
-    private Integer code;
+    private String code;
 
     @ManyToOne
     private Measurement measurement;

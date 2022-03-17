@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/login")
 public class LoginController {
     @Autowired
-    AdminRepository userRepository;
+    AdminRepository adminRepository;
 
 
     @GetMapping
@@ -23,7 +23,7 @@ public class LoginController {
 
     @PostMapping
     public String iseuser(Model model, @RequestParam("usernm") String usernm, @RequestParam("userpsw")String pass){
-        List<Admin> javob= userRepository.findByUsername(usernm);
+        List<Admin> javob= adminRepository.findByUsername(usernm);
         if (javob.get(0).getPassword().equals(pass)){
             return "home/home";
         }else {
