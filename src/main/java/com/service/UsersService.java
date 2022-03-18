@@ -7,11 +7,13 @@ import com.entity.Warehouse;
 import com.repository.UserRepository;
 import com.repository.WarehouseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 @Service
 public class UsersService {
@@ -23,7 +25,7 @@ public class UsersService {
     WarehouseRepository warehouseRepository;
 
     public void add(UsersDTO dto) {
-        List<Warehouse> allByActiveTrue = warehouseRepository.findAllByActiveTrue();
+        List<Warehouse> allByActiveTrue = warehouseRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id"));
 
         List<Warehouse> allById = warehouseRepository.findAllById(dto.getWarehouseid());
 
@@ -40,7 +42,7 @@ public class UsersService {
         Users users=new Users();
         users.setFullName(dto.getFullName());
         users.setActive(dto.isActive());
-        users.setCode(randomCode());
+        users.setCode(UUID.randomUUID().toString());
         users.setPhone_number(dto.getPhone_number());
         users.setWarehouse(all);
 
@@ -49,18 +51,8 @@ public class UsersService {
 
     }
 
-    public Integer randomCode(){
-
-        Random rand = new Random();
-        Integer maxNumber = 9999999;
-
-        Integer randomNumber = rand.nextInt(maxNumber) + 1;
-
-        return randomNumber;
-    }
-
     public ApiResponse edit(Integer id, UsersDTO dto) {
-        List<Warehouse> allByActiveTrue = warehouseRepository.findAllByActiveTrue();
+        List<Warehouse> allByActiveTrue = warehouseRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id"));
 
         List<Warehouse> allById = warehouseRepository.findAllById(dto.getWarehouseid());
 
@@ -77,7 +69,7 @@ public class UsersService {
         Users users=new Users();
         users.setFullName(dto.getFullName());
         users.setActive(dto.isActive());
-        users.setCode(randomCode());
+        users.setCode(UUID.randomUUID().toString());
         users.setId(id);
         users.setPhone_number(dto.getPhone_number());
         users.setWarehouse(all);

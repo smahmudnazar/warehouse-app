@@ -17,6 +17,8 @@ public class ProductDTO {
 
     private Integer measurement_id;
 
+    private AttachmentDTO attachmentDTO;
+
     private boolean active;
 
 }

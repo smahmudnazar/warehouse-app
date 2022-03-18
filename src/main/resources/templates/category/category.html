@@ -15,7 +15,6 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>IsActive</th>
             <th>Operations</th>
         </tr>
         </thead>
@@ -23,7 +22,6 @@
         <tr th:each="category,i : ${list}">
             <td th:text="${i.index+1}"></td>
             <td th:text="${category.name}"></td>
-            <td th:text="${category.active}"></td>
             <td>
                 <a class="btn btn-warning" th:href="${'/category/edit/'+category.id}">Update</a>
                 <a class="btn btn-danger" th:href="${'/category/delete/'+category.id}">Delete</a>

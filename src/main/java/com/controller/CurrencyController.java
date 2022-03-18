@@ -23,7 +23,7 @@ public class CurrencyController {
 
     @GetMapping
     public String getAll(Model model){
-        model.addAttribute("list",currencyRepository.findAll(Sort.by(Sort.Direction.ASC, "id")));
+        model.addAttribute("list",currencyRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
         return "currency/currency";
     }
 
@@ -40,7 +40,10 @@ public class CurrencyController {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id){
-        currencyRepository.deleteById(id);
+        Optional<Currency> byId = currencyRepository.findById(id);
+        Currency currency = byId.get();
+        currency.setActive(false);
+        currencyRepository.save(currency);
         return "redirect:/currency";
     }
 

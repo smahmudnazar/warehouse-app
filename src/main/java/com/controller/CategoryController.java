@@ -2,6 +2,7 @@ package com.controller;
 
 import com.dto.ApiResponse;
 import com.entity.Category;
+import com.entity.Input;
 import com.entity.Warehouse;
 import com.repository.CategoryRepository;
 import com.service.CategoryService;
@@ -24,7 +25,7 @@ public class CategoryController {
 
     @GetMapping
     public String getAll(Model model){
-        model.addAttribute("list",categoryRepository.findAll(Sort.by(Sort.Direction.ASC, "id")));
+        model.addAttribute("list",categoryRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
         return "category/category";
     }
 
@@ -41,7 +42,10 @@ public class CategoryController {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id){
-        categoryRepository.deleteById(id);
+        Optional<Category> byId = categoryRepository.findById(id);
+        Category category = byId.get();
+        category.setActive(false);
+        categoryRepository.save(category);
         return "redirect:/category";
     }
 

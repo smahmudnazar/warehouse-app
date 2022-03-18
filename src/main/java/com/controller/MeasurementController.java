@@ -25,7 +25,7 @@ public class MeasurementController {
 
     @GetMapping
     public String getAll(Model model){
-        model.addAttribute("list",measurementRepository.findAll(Sort.by(Sort.Direction.ASC, "id")));
+        model.addAttribute("list",measurementRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
         return "measurement/measurement";
     }
 
@@ -42,7 +42,10 @@ public class MeasurementController {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id){
-        measurementRepository.deleteById(id);
+        Optional<Measurement> byId = measurementRepository.findById(id);
+        Measurement measurement = byId.get();
+        measurement.setActive(false);
+        measurementRepository.save(measurement);
         return "redirect:/measurement";
     }
 

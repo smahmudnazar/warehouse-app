@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.Random;
+import java.util.UUID;
 
 @Service
 public class ProductService {
@@ -27,7 +28,8 @@ public class ProductService {
     public ApiResponse save(ProductDTO productDTO) {
         Product product = new Product();
         product.setName(productDTO.getName());
-        product.setCode(randomCode());
+        product.setCode(UUID.randomUUID().toString());
+        product.setActive(productDTO.isActive());
 
         Optional<Category> categoryOptional = categoryRepository.findById(productDTO.getCategory_id());
         product.setCategory(categoryOptional.get());
@@ -56,13 +58,4 @@ public class ProductService {
         return new ApiResponse("Updated", true);
     }
 
-    public Integer randomCode(){
-
-        Random rand = new Random();
-        Integer maxNumber = 9999999;
-
-        Integer randomNumber = rand.nextInt(maxNumber) + 1;
-
-        return randomNumber;
-    }
 }

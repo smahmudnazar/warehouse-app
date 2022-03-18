@@ -3,15 +3,13 @@ package com.controller;
 import com.dto.ApiResponse;
 import com.dto.ProductDTO;
 import com.entity.Product;
-import com.repository.CategoryRepository;
-import com.repository.MeasurementRepository;
-import com.repository.ProductRepository;
+import com.repository.*;
 import com.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Optional;
 
 
@@ -28,18 +26,23 @@ public class ProductController {
     CategoryRepository categoryRepository;
     @Autowired
     MeasurementRepository measurementRepository;
+    @Autowired
+    AttachmentRepositry attachmentRepositry;
+
+    @Autowired
+    AttachmentContentRepository attachmentContentRepository;
 
 
     @GetMapping
     public String getProduct(Model model) {
-        model.addAttribute("listProduct", productRepository.findAll());
+        model.addAttribute("listProduct", productRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
         return "product/product";
     }
 
     @GetMapping("/add")
     public String getAddPage(Model model) {
-        model.addAttribute("categorytList", categoryRepository.findAllByActiveTrue());
-        model.addAttribute("measurementList", measurementRepository.findAllByActiveTrue());
+        model.addAttribute("categorytList", categoryRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
+        model.addAttribute("measurementList", measurementRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
         return "product/product-add";
     }
 
@@ -49,9 +52,14 @@ public class ProductController {
         return "redirect:/product";
     }
 
+
+
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
-        productRepository.deleteById(id);
+        Optional<Product> byId = productRepository.findById(id);
+        Product product = byId.get();
+        product.setActive(false);
+        productRepository.save(product);
         return "redirect:/product";
     }
 
@@ -61,8 +69,8 @@ public class ProductController {
         if (!product.isPresent()) return "Error";
 
         model.addAttribute("product", product.get());
-        model.addAttribute("categoryList", categoryRepository.findAllByActiveTrue());
-        model.addAttribute("measurementList", measurementRepository.findAllByActiveTrue());
+        model.addAttribute("categoryList", categoryRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
+        model.addAttribute("measurementList", measurementRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
         return "product/product-edit";
     }
 

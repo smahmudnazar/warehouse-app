@@ -27,7 +27,7 @@ public class SupplierController {
 
     @GetMapping
     public String get(Model model){
-        model.addAttribute("list",supplierRepository.findAll(Sort.by(Sort.Direction.ASC, "id")));
+        model.addAttribute("list",supplierRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
         return "supplier/supplier";
     }
     @GetMapping("/add")
@@ -43,7 +43,10 @@ public class SupplierController {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id){
-        supplierRepository.deleteById(id);
+        Optional<Supplier> byId = supplierRepository.findById(id);
+        Supplier supplier = byId.get();
+        supplier.setActive(false);
+        supplierRepository.save(supplier);
         return "redirect:/supplier";
     }
 

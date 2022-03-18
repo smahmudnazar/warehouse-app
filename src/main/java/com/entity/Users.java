@@ -23,7 +23,8 @@ public class Users {
     @Column(unique = true)
     private String phone_number;
 
-    private Integer code;
+    @Column(nullable = false,unique = true)
+    private String code;
 
     @ManyToMany
     private List<Warehouse> warehouse;

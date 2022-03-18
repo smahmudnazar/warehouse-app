@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.dto.ApiResponse;
+import com.entity.Input;
 import com.entity.Warehouse;
 import com.repository.WarehouseRepository;
 import com.service.WarehouseService;
@@ -26,7 +27,7 @@ public class WarehouseController {
 
     @GetMapping
     public String getAll(Model model){
-        model.addAttribute("list",warehouseRepository.findAll(Sort.by(Sort.Direction.ASC, "id")));
+        model.addAttribute("list",warehouseRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
         return "warehouse/warehouse";
     }
 
@@ -44,7 +45,10 @@ public class WarehouseController {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id){
-        warehouseRepository.deleteById(id);
+        Optional<Warehouse> byId = warehouseRepository.findById(id);
+        Warehouse warehouse = byId.get();
+        warehouse.setActive(false);
+        warehouseRepository.save(warehouse);
         return "redirect:/warehouse";
     }
 
