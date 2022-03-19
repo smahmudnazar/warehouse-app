@@ -24,7 +24,7 @@ public class ClientController {
 
     @GetMapping
     public String get(Model model){
-        model.addAttribute("list",clientRepository.findAll(Sort.by(Sort.Direction.ASC, "id")));
+        model.addAttribute("list",clientRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
         return "client/client";
     }
     @GetMapping("/add")
@@ -40,7 +40,10 @@ public class ClientController {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id){
-        clientRepository.deleteById(id);
+        Optional<Client> byId = clientRepository.findById(id);
+        Client client = byId.get();
+        client.setActive(false);
+        clientRepository.save(client);
         return "redirect:/client";
     }
 
@@ -55,7 +58,7 @@ public class ClientController {
 
     @PostMapping("/edit/{id}")
     public String edit(@PathVariable Integer id, @ModelAttribute Client client){
-        ApiResponse response=clientService.edit(id,client);
+        clientService.edit(id,client);
         return "redirect:/client";
     }
 }

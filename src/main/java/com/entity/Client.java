@@ -17,4 +17,5 @@ import javax.persistence.Entity;
 public class Client extends AbsNameEntity {
     @Column(unique = true)
     private String phone_number;
+    private boolean active=true;
 }

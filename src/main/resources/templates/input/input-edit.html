@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<h1>Input Edit Page</h1>
+
+<form method="post" th:action="@{/input/edit/{id}(id=${input.id})}" th:object="${input}">
+
+
+    <div class="col-4">
+        <input th:field="*{date}" type="date" required name="date" class="form-control" style="background-color: #f1f1f1">
+    </div>
+    <div class="col-4">
+        <select  name="currency_id" required class="form-control "
+                style="background-color: #f1f1f1">
+            <option th:field="*{currency}"  th:each="currency: ${currencyList}"
+                    th:text="${currency.name}" th:value="${currency.id}"
+            ></option>
+        </select>
+    </div>
+    <div class="col-6 mt-3">
+        <select name="warehouse_id" required class="form-control"
+                style="background-color: #f1f1f1">
+            <option th:field="*{warehouse}"  th:each="warehouse: ${warehouseList}"
+                    th:text="${warehouse.name}" th:value="${warehouse.id}"
+            ></option>
+        </select>
+    </div>
+    <div class="col-6 mt-3">
+        <select name="supplier_id" required class="form-control "
+                style="background-color: #f1f1f1">
+            <option th:field="*{supplier}"  th:each="supplier: ${supplierList}"
+                    th:text="${supplier.name+' '+supplier.phone_number}" th:value="${supplier.id}"
+            ></option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<br>
+<br>
+</body>
+</html>

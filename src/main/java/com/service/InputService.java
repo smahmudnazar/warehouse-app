@@ -3,16 +3,17 @@ package com.service;
 import com.dto.ApiResponse;
 import com.dto.InputDTO;
 import com.dto.InputProductDTO;
-import com.dto.ProductDTO;
 import com.entity.*;
+import com.entity.Currency;
 import com.repository.*;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.*;
+
 
 @Service
 public class InputService {
@@ -55,7 +56,7 @@ public class InputService {
             input_product.setProduct(byId.get());
             input_product.setAmount(inputProductDTO.getAmount());
             input_product.setPrice(inputProductDTO.getPrice());
-            input_product.setExpire_date(inputProductDTO.getExpireDate());
+            input_product.setExpireDate(inputProductDTO.getExpireDate());
 
             input_products.add(input_product);
         }
@@ -76,7 +77,7 @@ public class InputService {
         input_product.setProduct(product);
         input_product.setPrice(dto.getPrice());
         input_product.setAmount(dto.getAmount());
-        input_product.setExpire_date(dto.getExpireDate());
+        input_product.setExpireDate(dto.getExpireDate());
 
         inputProductRepository.save(input_product);
         return new ApiResponse("Updated", true);
@@ -92,9 +93,7 @@ public class InputService {
         inputProductRepository.save(input_product);
         for (Input input : inputRepository.findAll()) {
             for (Input_product inputProduct : input.getInputProductList()) {
-                if (inputProduct.getId()==id) {
-                    integer=input.getId();
-                }
+                if (inputProduct.getId()==id) integer=input.getId();
             }
         }
         return integer;
@@ -112,5 +111,38 @@ public class InputService {
             }
         }
         return input_products;
+    }
+
+
+    @SneakyThrows
+    public void deleteByExpireDate(){
+        List<Input_product> all = inputProductRepository.findAll();
+        LocalDate localDate=LocalDate.now();
+        Date d = new SimpleDateFormat("yyyy-MM-dd").parse(localDate.toString());
+        for (Input_product input_product : all) {
+            if (!input_product.getExpireDate().after(d)){
+                input_product.setActive(false);
+            }
+            inputProductRepository.save(input_product);
+        }
+    }
+
+
+    public ApiResponse edit(Integer id, InputDTO dto) {
+        Optional<Input> byId = inputRepository.findById(id);
+        Input input = byId.get();
+        input.setDate(dto.getDate());
+
+        Optional<Supplier> supplier = supplierRepository.findById(dto.getSupplier_id());
+        input.setSupplier(supplier.get());
+
+        Optional<Warehouse> warehouse = warehouseRepository.findById(dto.getWarehouse_id());
+        input.setWarehouse(warehouse.get());
+
+        Optional<Currency> currency = currencyRepository.findById(dto.getCurrency_id());
+        input.setCurrency(currency.get());
+
+        inputRepository.save(input);
+        return new ApiResponse("Edited",true);
     }
 }

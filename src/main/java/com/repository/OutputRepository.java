@@ -1,7 +1,7 @@
 package com.repository;
 
-import com.entity.Client;
-import com.entity.Supplier;
+import com.entity.Input;
+import com.entity.Output;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ClientRepository extends JpaRepository <Client,Integer>{
-    List<Client> findAllByActiveTrue(Sort sort);
+public interface OutputRepository extends JpaRepository<Output,Integer> {
+    List<Output> findAllByActiveTrue(Sort sort);
 }
