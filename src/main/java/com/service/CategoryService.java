@@ -22,6 +22,6 @@ public class CategoryService {
         category1.setActive(category.isActive());
 
         categoryRepository.save(category1);
-        return new ApiResponse("Saved",true);
+        return new ApiResponse("Saved", true);
     }
 }

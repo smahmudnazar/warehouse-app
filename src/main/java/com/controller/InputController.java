@@ -1,14 +1,11 @@
 package com.controller;
 
-import com.dto.ApiResponse;
 import com.dto.InputDTO;
 import com.dto.InputProductDTO;
 import com.entity.Input;
 import com.entity.Input_product;
-import com.entity.Product;
 import com.repository.*;
 import com.service.InputService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;

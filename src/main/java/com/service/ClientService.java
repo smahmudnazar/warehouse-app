@@ -15,12 +15,12 @@ public class ClientService {
 
     public ApiResponse edit(Integer id, Client client) {
         Optional<Client> byId = clientRepository.findById(id);
-        Client client1= byId.get();
+        Client client1 = byId.get();
 
         client1.setName(client.getName());
         client1.setPhone_number(client.getPhone_number());
 
         clientRepository.save(client1);
-        return new ApiResponse("Saved",true);
+        return new ApiResponse("Saved", true);
     }
 }

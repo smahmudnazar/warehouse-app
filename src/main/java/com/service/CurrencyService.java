@@ -11,17 +11,17 @@ import java.util.Optional;
 
 @Service
 public class CurrencyService {
-@Autowired
+    @Autowired
     CurrencyRepository currencyRepository;
 
     public ApiResponse edit(Integer id, Currency currency) {
         Optional<Currency> byId = currencyRepository.findById(id);
-        Currency currency1= byId.get();
+        Currency currency1 = byId.get();
 
         currency1.setName(currency.getName());
         currency1.setActive(currency.isActive());
 
         currencyRepository.save(currency1);
-        return new ApiResponse("Saved",true);
+        return new ApiResponse("Saved", true);
     }
 }
