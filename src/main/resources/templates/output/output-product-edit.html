@@ -8,17 +8,13 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<h1>InputProduct Edit Page</h1>
+<h1>OutputProduct Edit Page</h1>
 
-<form method="post" th:action="@{/input/edit_p/{id}(id=${input.id})}" th:object="${input}">
+<form method="post" th:action="@{/output/edit_p/{id}(id=${output.id})}" th:object="${output}">
 
     <div class="form-group">
         <input th:field="*{amount}" name="amount" type="number" class="form-control" id="amount"
                placeholder="Product amount:">
-    </div>
-
-    <div class="form-group">
-        <input th:field="*{expireDate}"  name="expireDate" type="date"  class="form-control" id="expireDate">
     </div>
 
     <div class="form-group">
@@ -31,7 +27,7 @@
         <label> Product </label>
         <div>
             <select name="productId">
-                <option th:field="*{product}" th:each="product : ${productlist}"
+                <option th:field="*{product}" th:each="product : ${productList}"
                         th:text="${product.name}"
                         th:value="${product.id}">
             </select>

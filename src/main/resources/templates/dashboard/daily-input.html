@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<form method="post" action="/dashboard/dailyInput">
+
+    <h4>Please choose date</h4>
+    <div class="col-4">
+        <input type="date" required name="date" class="form-control" style="background-color: #f1f1f1">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<br>
+<br>
+</body>
+</html>

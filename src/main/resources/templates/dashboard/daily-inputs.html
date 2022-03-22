@@ -8,33 +8,26 @@
 </head>
 <body>
 <div class="container">
-    <h1>Input Product Page</h1>
+    <h1>Daily Input Products Page</h1>
     <table class="table table-hover">
         <thead>
         <tr>
             <th>Id</th>
+            <th>Product Name</th>
             <th>Amount</th>
-            <th>Expire Date</th>
-            <th>Price</th>
-            <th>Product</th>
+            <th>Summa</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each=" input,i : ${list}">
+        <tr th:each=" daily,i : ${list}">
             <td th:text="${i.index+1}"></td>
-            <td th:text="${input.amount}"></td>
-            <td th:text="${input.expireDate}"></td>
-            <td th:text="${input.price}"></td>
-            <td th:text="${input.product.name}"></td>
-            <td>
-                <a class="btn btn-danger" th:href="${'/input/delete_p/'+input.id}">Delete</a>
-                <a class="btn btn-warning" th:href="${'/input/edit_p/'+input.id}">Edit</a>
-
-            </td>
+            <td th:text="${daily.productName}"></td>
+            <td th:text="${daily.amount}"></td>
+            <td th:text="${daily.summa}"></td>
         </tr>
         </tbody>
     </table>
 </div>
-<br>
+
 </body>
 </html>

@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor
@@ -27,7 +26,7 @@ public class Input_product {
 
     private boolean active=true;
 
-    private Date expire_date;
+    private Date expireDate;
 
 
 }

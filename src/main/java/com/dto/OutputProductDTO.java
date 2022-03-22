@@ -1,22 +1,15 @@
-package com.entity;
+package com.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Output_product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class OutputProductDTO {
 
-    @ManyToOne
-    private Product product;
+    private Integer productId;
 
     private double amount;
 

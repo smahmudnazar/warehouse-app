@@ -8,8 +8,8 @@
 </head>
 <body>
 <div class="container">
-    <h1>Input Page</h1>
-    <a href="/input/add" class="btn btn-success">Yangi Input Qo'shish</a>
+    <h1>Output Page</h1>
+    <a href="/output/add" class="btn btn-success">Yangi Output Qo'shish</a>
     <table class="table table-hover">
         <thead>
         <tr>
@@ -18,21 +18,21 @@
             <th>Warehouse</th>
             <th>Facture Number</th>
             <th>Currency</th>
-            <th>Supplier</th>
+            <th>Client</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each=" input,i : ${list}">
+        <tr th:each=" output,i : ${list}">
             <td th:text="${i.index+1}"></td>
-            <td th:text="${input.date}"></td>
-            <td th:text="${input.warehouse.name}"></td>
-            <td th:text="${input.facture_number}"></td>
-            <td th:text="${input.currency.name}"></td>
-            <td th:text="${input.supplier.name}"></td>
+            <td th:text="${output.date}"></td>
+            <td th:text="${output.warehouse.name}"></td>
+            <td th:text="${output.facture_number}"></td>
+            <td th:text="${output.currency.name}"></td>
+            <td th:text="${output.client.name}"></td>
             <td>
-                <a class="btn btn-warning" th:href="${'/input/edit/'+input.id}">Edit</a>
-                <a class="btn btn-danger" th:href="${'/input/delete/'+input.id}">Delete</a>
-                <a class="btn btn-success" th:href="${'/input/view/'+input.id}">View</a>
+                <a class="btn btn-warning" th:href="${'/output/edit/'+output.id}">Edit</a>
+                <a class="btn btn-danger" th:href="${'/output/delete/'+output.id}">Delete</a>
+                <a class="btn btn-success" th:href="${'/output/view/'+output.id}">View</a>
 
             </td>
         </tr>
