@@ -15,6 +15,7 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>Image</th>
             <th>Category</th>
             <th>Measurement</th>
             <th>Operations</th>
@@ -24,6 +25,8 @@
         <tr th:each=" product,i : ${listProduct}">
             <td th:text="${i.index+1}"></td>
             <td th:text="${product.getName()}"></td>
+            <th scope="row"><img alt=" " th:src="*{'data:image/jpeg;base64,'+ {product.photo.img}}" style="width: 70px; height: 70px;
+            "></th>
             <td th:text="${product.category.name}"></td>
             <td th:text="${product.measurement.name}"></td>
             <td>

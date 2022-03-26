@@ -5,19 +5,20 @@ import com.dto.ProductDTO;
 import com.entity.Product;
 import com.repository.*;
 import com.service.ProductService;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.Optional;
 
 
 @Controller
 @RequestMapping("/product")
 public class ProductController {
-
-
     @Autowired
     ProductRepository productRepository;
     @Autowired
@@ -29,8 +30,6 @@ public class ProductController {
     @Autowired
     AttachmentRepositry attachmentRepositry;
 
-    @Autowired
-    AttachmentContentRepository attachmentContentRepository;
 
 
     @GetMapping
@@ -43,12 +42,13 @@ public class ProductController {
     public String getAddPage(Model model) {
         model.addAttribute("categorytList", categoryRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
         model.addAttribute("measurementList", measurementRepository.findAllByActiveTrue(Sort.by(Sort.Direction.ASC, "id")));
+
         return "product/product-add";
     }
 
     @PostMapping("/add")
-    public String addPage(@ModelAttribute ProductDTO productDTO) {
-        productService.save(productDTO);
+    public String addPage(@ModelAttribute ProductDTO productDTO, @RequestParam("file")MultipartFile file) {
+        productService.save(productDTO,file);
         return "redirect:/product";
     }
 
@@ -74,9 +74,10 @@ public class ProductController {
         return "product/product-edit";
     }
 
+    @SneakyThrows
     @PostMapping("/edit/{id}")
-    public String editSave(@PathVariable Integer id, @ModelAttribute ProductDTO productDTO) {
-        ApiResponse response = productService.edit(id, productDTO);
+    public String editSave(@PathVariable Integer id, @ModelAttribute ProductDTO productDTO, @RequestParam("file")MultipartFile file) {
+        ApiResponse response = productService.edit(id, productDTO,file);
         return "redirect:/product";
 
     }

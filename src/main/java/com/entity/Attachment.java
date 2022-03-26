@@ -21,5 +21,9 @@ public class Attachment extends AbsNameEntity {
     private String name;
     private long size;
     private String contentType;
+    private byte[] bytes;
+
+    @Column(length = 6541100)
+    private String img;
 
 }

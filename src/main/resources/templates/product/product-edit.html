@@ -10,11 +10,18 @@
 <body>
 <h1>Product Edit Page</h1>
 
-<form method="post" th:action="@{/product/edit/{id}(id=${product.id})}" th:object="${product}">
+<form method="post" th:action="@{/product/edit/{id}(id=${product.id})}" th:object="${product}" enctype="multipart/form-data">
 
     <div class="form-group">
         <input th:field="*{name}" name="name" type="text" class="form-control" id="ketmon"
                placeholder="Product name:">
+    </div>
+
+    <th scope="row"><img alt=" " th:src="*{'data:image/jpeg;base64,'+ {photo.img}}" style="width: 70px; height: 70px;
+            "></th>
+    <div>
+        <label for="file">Choose photo:</label>
+        <input type="file"  id="file" name="file" value="true">
     </div>
 
     <label for="active">IsActive:</label>
