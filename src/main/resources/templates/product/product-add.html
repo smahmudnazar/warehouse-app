@@ -9,14 +9,16 @@
 </head>
 <body>
 <h1>Product Add Page</h1>
-<form method="post" action="/product/add">
-<input name="name" type="text" class="form-control" id="ketmon"
-               placeholder="Product name:">
+<form method="post" action="/product/add" enctype="multipart/form-data">
+    <input name="name" type="text" class="form-control" id="ketmon"
+           placeholder="Product name:">
     </div>
-
     <label for="active">IsActive:</label>
     <input type="checkbox" id="active" name="active" value="true">
-
+    <div>
+    <label for="file">Choose photo:</label>
+    <input type="file"  id="file" name="file" value="true">
+    </div>
     <div>
         <label> Category </label>
         <div>

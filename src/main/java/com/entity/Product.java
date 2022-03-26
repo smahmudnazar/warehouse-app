@@ -18,8 +18,8 @@ public class Product extends AbsNameEntity {
     @ManyToOne
     private Category category;
 
-//    @ManyToOne
-//    private Attachment photo;
+    @ManyToOne
+    private Attachment photo;
 
     @Column(nullable = false,unique = true)
     private String code;
